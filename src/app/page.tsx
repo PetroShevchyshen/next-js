@@ -1,6 +1,6 @@
 import { getAllPosts } from './(server)/api';
-import { ROUTING } from './routing';
 import { AppLink } from './shared/components/app-link';
+import { PostPreview } from './PostPreview';
 
 const POSTS_PER_PAGE = 10;
 
@@ -28,9 +28,7 @@ export default async function Home({
       <ul>
         {posts.map((post) => (
           <li key={post.id}>
-            <AppLink href={ROUTING.article(post.id.toString())}>
-              {post.title}
-            </AppLink>
+            <PostPreview name={post.id.toString()} text={post.title} />
           </li>
         ))}
       </ul>
